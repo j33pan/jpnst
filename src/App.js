@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Amplify, {API, graphqlOperation} from "aws-amplify";
+import awsExports from "./aws-exports";
+import { listJPFoods } from './graphql/queries';
+import React from 'react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+Amplify.configure(awsExports);
 
 function App() {
+  const getfoods = async () => {
+      const data = await API.graphql({
+        query:listJPFoods,
+        authMode: 'AWS_IAM'
+      }) 
+      console.log("success: ", data)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={getfoods}>get data</button>
     </div>
   );
 }

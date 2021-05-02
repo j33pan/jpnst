@@ -44,6 +44,9 @@
                 "apiKeyExpirationDays": 7,
                 "description": "guest user access"
               }
+            },
+            {
+              "authenticationType": "AWS_IAM"
             }
           ]
         }

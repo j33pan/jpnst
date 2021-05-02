@@ -1,4 +1,6 @@
-type JPFood @model(subscriptions: null) {
+type JPFood
+  @model(subscriptions: null)
+  @auth(rules: [{ allow: public, provider: iam, operations: [read] }]) {
   id: ID!
   title: String!
   description: String
