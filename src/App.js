@@ -1,13 +1,10 @@
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import Home from './pages/Home'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
+import AddFood from "./pages/AddFood";
 
 Amplify.configure(awsExports);
 
@@ -16,8 +13,9 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path='/login' component={Login} />
-          <Route path='/' component={Home} exact/>
+          <Route path="/login" component={Login} />
+          <Route path="/addfood" component={AddFood} />
+          <Route path="/" component={Home} exact />
         </Switch>
       </Router>
     </div>
