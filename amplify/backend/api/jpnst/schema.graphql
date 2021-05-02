@@ -14,3 +14,14 @@ type Order @model(subscriptions: null) {
   date: String
   total: Float
 }
+
+enum OrderStatus {
+  SUCCESS
+  FAILED
+}
+
+type Mutation {
+  processOrder(): OrderStatus
+    @function(name: "processPayment-${env}")
+    @function(name: "createOrder-${env}")
+}
