@@ -75,7 +75,7 @@ export default function Home() {
                     <div key={id}>
                         <article key={id} className="book">
                             <div className="book-image">
-                                <img src={image} alt={title} width={200} />
+                                <img src={image} alt={title} height={100} />{title}
                             </div>
                         </article>
                     </div>
@@ -86,7 +86,7 @@ export default function Home() {
             <form className="form-wrapper" onSubmit={handleSubmit}>
                         <div className="form-fields">
                         <div className="form-image">
-                            {image ? <img className="image-preview" src={image} alt="" width={300} /> : <input
+                            {image ? <img className="image-preview" src={image} alt="" height={100}/> : <input
                                 type="file"
                                 accept="image/jpg"
                                 onChange={(e) => handleImageUpload(e)} />}
