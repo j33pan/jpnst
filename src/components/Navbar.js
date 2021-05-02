@@ -12,6 +12,7 @@ function Navbar(props) {
       <button onClick={() => handlenav("/")}>Home</button>
       <button onClick={() => handlenav("/login")}>Login</button>
       <button onClick={() => handlenav("/addfood")}>Add Food</button>
+      <button onClick={() => handlenav("/food")}>Food</button>
       {curruser}
       <br />
       <br />
