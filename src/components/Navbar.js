@@ -1,8 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router";
 
-function Navbar() {
+function Navbar(props) {
   const history = useHistory();
+  const { curruser } = props;
+
   const handlenav = (url) => history.push(url);
 
   return (
@@ -10,6 +12,7 @@ function Navbar() {
       <button onClick={() => handlenav("/")}>Home</button>
       <button onClick={() => handlenav("/login")}>Login</button>
       <button onClick={() => handlenav("/addfood")}>Add Food</button>
+      {curruser}
       <br />
       <br />
     </div>
