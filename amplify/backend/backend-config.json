@@ -6,5 +6,11 @@
       "dependsOn": [],
       "customAuth": false
     }
+  },
+  "storage": {
+    "jpnstImages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

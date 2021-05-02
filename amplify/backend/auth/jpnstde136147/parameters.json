@@ -1,6 +1,6 @@
 {
     "identityPoolName": "jpnstde136147_identitypool_de136147",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "jpnstde136147",
     "userPoolName": "jpnstde136147_userpool_de136147",
     "autoVerifiedAttributes": [
