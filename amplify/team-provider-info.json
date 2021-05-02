@@ -14,6 +14,16 @@
     "categories": {
       "auth": {
         "jpnstde136147": {}
+      },
+      "function": {
+        "processPayment": {
+          "deploymentBucketName": "amplify-jpnst-dev-215416-deployment",
+          "s3Key": "amplify-builds/processPayment-4c4330797a3970436a71-build.zip"
+        },
+        "createOrder": {
+          "deploymentBucketName": "amplify-jpnst-dev-215416-deployment",
+          "s3Key": "amplify-builds/createOrder-77434a2f654c73583945-build.zip"
+        }
       }
     }
   }

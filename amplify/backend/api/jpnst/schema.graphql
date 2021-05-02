@@ -15,13 +15,29 @@ type Order @model(subscriptions: null) {
   total: Float
 }
 
+input CartItem {
+  id: ID!
+  title: String
+  image: String
+  price: Float
+  amount: Int
+}
+
+input ProcessOrderInput {
+  id: ID!
+  cart: [CartItem]
+  total: Float!
+  token: String!
+  address: String
+}
+
 enum OrderStatus {
   SUCCESS
   FAILED
 }
 
 type Mutation {
-  processOrder(): OrderStatus
+  processOrder(input: ProcessOrderInput!): OrderStatus
     @function(name: "processPayment-${env}")
     @function(name: "createOrder-${env}")
 }
