@@ -18,7 +18,7 @@ function Food() {
 
   return (
     <div>
-      {foods.map(({ image: image, id, title }) => (
+      {foods.map(({ image, id, title }) => (
         <div key={id}>
           <article key={id} className="book">
             <div className="book-image">
