@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-import Amplify, {API, graphqlOperation} from "aws-amplify";
+import Amplify, {API} from "aws-amplify";
 import awsExports from "./aws-exports";
 import { listJPFoods } from './graphql/queries';
 import React from 'react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Home from './pages/Home'
+
 Amplify.configure(awsExports);
 
 function App() {
-  const getfoods = async () => {
-      const data = await API.graphql({
-        query:listJPFoods,
-        authMode: 'AWS_IAM'
-      }) 
-      console.log("success: ", data)
-  }
-
   return (
-    <div className="App">
-      <button onClick={getfoods}>get data</button>
+    <div>
+      <Router>
+        <Switch>
+          <Route path='/login' />
+          <Route path='/' component={Home} exact/>
+        </Switch>
+      </Router>
     </div>
   );
 }
