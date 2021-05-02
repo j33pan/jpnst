@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jpnst-dev-215416-authRole",
+      "UnauthRoleArn": "arn:aws:iam::734822763486:role/amplify-jpnst-dev-215416-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::734822763486:role/amplify-jpnst-dev-215416-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-jpnst-dev-215416-deployment",
+      "UnauthRoleName": "amplify-jpnst-dev-215416-unauthRole",
+      "StackName": "amplify-jpnst-dev-215416",
+      "StackId": "arn:aws:cloudformation:ca-central-1:734822763486:stack/amplify-jpnst-dev-215416/4ee00c20-aae9-11eb-900c-02c81d10e22e",
+      "AmplifyAppId": "d2w85jam8pvwbq"
+    }
+  }
+}
