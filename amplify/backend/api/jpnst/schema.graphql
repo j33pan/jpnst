@@ -1,6 +1,12 @@
 type JPFood
   @model(subscriptions: null)
-  @auth(rules: [{ allow: public, provider: iam, operations: [read] }]) {
+  @auth(
+    rules: [
+      { allow: public, provider: iam, operations: [read] }
+      { allow: private, operations: [read] }
+      { allow: groups, groups: ["Admin"], operations: [create, update, delete, read] }
+    ]
+  ) {
   id: ID!
   title: String!
   description: String
