@@ -6,12 +6,14 @@ import { listJPFoods, listOrders } from "../graphql/queries";
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
+    const [foods, setFoods] = React.useState([])
     const getfoods = async () => {
         const data = await API.graphql({
           query: listJPFoods,
           authMode: 'AWS_IAM'
         }) 
         console.log("success: ", data)
+        setFoods(data.data.listJPFoods.items)
     }
 
     const getorders = async () => {
@@ -66,6 +68,21 @@ export default function Home() {
             <button onClick={getfoods}>get food</button>
             <button onClick={getorders}>get orders</button>
             <button onClick={handlegotologin}>go to login</button>
+
+            <div>
+                foods
+                {foods.map(({ image: image, id, title })=>
+                    <div key={id}>
+                        <article key={id} className="book">
+                            <div className="book-image">
+                                <img src={image} alt={title} width={200} />
+                            </div>
+                        </article>
+                    </div>
+                )}
+            </div>
+
+            <br /><br /><br /><br /><br /><br />
             <form className="form-wrapper" onSubmit={handleSubmit}>
                         <div className="form-fields">
                         <div className="form-image">
