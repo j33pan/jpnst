@@ -4,7 +4,11 @@ type JPFood
     rules: [
       { allow: public, provider: iam, operations: [read] }
       { allow: private, operations: [read] }
-      { allow: groups, groups: ["Admin"], operations: [create, update, delete, read] }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [create, update, delete, read]
+      }
     ]
   ) {
   id: ID!
@@ -33,10 +37,10 @@ input CartItem {
 
 input ProcessOrderInput {
   id: ID!
-  cart: [CartItem]
+  # cart: [CartItem]
   total: Float!
-  token: String!
-  address: String
+  # token: String!
+  # address: String
 }
 
 enum OrderStatus {

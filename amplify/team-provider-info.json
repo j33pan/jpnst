@@ -22,7 +22,7 @@
         },
         "createOrder": {
           "deploymentBucketName": "amplify-jpnst-dev-215416-deployment",
-          "s3Key": "amplify-builds/createOrder-77434a2f654c73583945-build.zip"
+          "s3Key": "amplify-builds/createOrder-7649484d45625868774e-build.zip"
         }
       }
     }
