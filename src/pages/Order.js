@@ -21,7 +21,7 @@ function Order() {
         <div key={id}>
           <article key={id}>
             <div>
-              {note}: {total}, {id}
+              {id}: {total}
             </div>
           </article>
         </div>

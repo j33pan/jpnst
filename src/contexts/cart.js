@@ -1,4 +1,7 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
+import API, { graphqlOperation } from "@aws-amplify/api";
+import { processOrder } from "../graphql/mutations";
 
 const CartContext = React.createContext();
 
@@ -43,10 +46,19 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  const checkout = () => {};
+  const checkout = (details) => {
+    const payload = {
+      id: uuidv4(),
+      ...details,
+      cart,
+      total,
+    };
+    console.log("checkout input: ", payload);
+    API.graphql(graphqlOperation(processOrder, { input: payload }));
+  };
 
   return (
-    <CartContext.Provider value={{ cart, inc, dec, total }}>
+    <CartContext.Provider value={{ cart, inc, dec, total, checkout }}>
       {children}
     </CartContext.Provider>
   );

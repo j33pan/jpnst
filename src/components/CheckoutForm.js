@@ -23,13 +23,11 @@ function CheckoutForm() {
   };
   const stripe = useStripe();
   const elements = useElements();
-  const { cart, total } = React.useContext(CartContext);
   const [orderDetails, setOrderDetails] = React.useState({
-    cart,
-    total,
     address: null,
     token: null,
   });
+  const { checkout } = React.useContext(CartContext);
 
   const handlesubmit = async (event) => {
     event.preventDefault();
@@ -37,12 +35,14 @@ function CheckoutForm() {
 
     const cardele = elements.getElement(CardElement);
     const result = await stripe.createToken(cardele);
-    console.log(result);
-    if (!result.error)
+    if (!result.error) {
       setOrderDetails({ ...orderDetails, token: result.token.id });
+    }
   };
 
-  React.useEffect(() => console.log(orderDetails), [orderDetails]);
+  React.useEffect(() => {
+    if (orderDetails.token) checkout(orderDetails);
+  }, [orderDetails]);
 
   return (
     <form onSubmit={handlesubmit}>
@@ -53,7 +53,7 @@ function CheckoutForm() {
           setOrderDetails({ ...orderDetails, address: e.target.value })
         }
       />
-      <CardElement />
+      <CardElement options={CARD_ELEMENT_OPTIONS} />
       <button type="submit" disabled={!stripe}>
         Pay
       </button>

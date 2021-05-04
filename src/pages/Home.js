@@ -14,9 +14,9 @@ export default function Home() {
 
   return (
     <div>
-      <button onClick={handleclick}>
+      {/* <button onClick={handleclick}>
         call lamda functions (process payment, create order)
-      </button>
+      </button> */}
     </div>
   );
 }
