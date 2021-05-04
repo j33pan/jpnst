@@ -34,6 +34,75 @@ export const listJPOrders = /* GraphQL */ `
     }
   }
 `;
+export const getJPFoodOrder = /* GraphQL */ `
+  query GetJPFoodOrder($id: ID!) {
+    getJPFoodOrder(id: $id) {
+      id
+      food_id
+      order_id
+      order {
+        id
+        owner
+        total
+        note
+        email
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      food {
+        id
+        title
+        description
+        image
+        author
+        featured
+        price
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const listJPFoodOrders = /* GraphQL */ `
+  query ListJPFoodOrders(
+    $filter: ModelJPFoodOrderFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listJPFoodOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        food_id
+        order_id
+        order {
+          id
+          owner
+          total
+          note
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+        food {
+          id
+          title
+          description
+          image
+          author
+          featured
+          price
+          createdAt
+          updatedAt
+        }
+      }
+      nextToken
+    }
+  }
+`;
 export const getJPNote = /* GraphQL */ `
   query GetJPNote($id: ID!) {
     getJPNote(id: $id) {
@@ -65,21 +134,6 @@ export const listJPNotes = /* GraphQL */ `
     }
   }
 `;
-export const getJPFood = /* GraphQL */ `
-  query GetJPFood($id: ID!) {
-    getJPFood(id: $id) {
-      id
-      title
-      description
-      image
-      author
-      featured
-      price
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const listJPFoods = /* GraphQL */ `
   query ListJPFoods(
     $filter: ModelJPFoodFilterInput
@@ -99,6 +153,21 @@ export const listJPFoods = /* GraphQL */ `
         updatedAt
       }
       nextToken
+    }
+  }
+`;
+export const getJPFood = /* GraphQL */ `
+  query GetJPFood($id: ID!) {
+    getJPFood(id: $id) {
+      id
+      title
+      description
+      image
+      author
+      featured
+      price
+      createdAt
+      updatedAt
     }
   }
 `;

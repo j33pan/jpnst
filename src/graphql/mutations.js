@@ -108,6 +108,108 @@ export const deleteJPOrder = /* GraphQL */ `
     }
   }
 `;
+export const createJPFoodOrder = /* GraphQL */ `
+  mutation CreateJPFoodOrder(
+    $input: CreateJPFoodOrderInput!
+    $condition: ModelJPFoodOrderConditionInput
+  ) {
+    createJPFoodOrder(input: $input, condition: $condition) {
+      id
+      food_id
+      order_id
+      order {
+        id
+        owner
+        total
+        note
+        email
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      food {
+        id
+        title
+        description
+        image
+        author
+        featured
+        price
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const updateJPFoodOrder = /* GraphQL */ `
+  mutation UpdateJPFoodOrder(
+    $input: UpdateJPFoodOrderInput!
+    $condition: ModelJPFoodOrderConditionInput
+  ) {
+    updateJPFoodOrder(input: $input, condition: $condition) {
+      id
+      food_id
+      order_id
+      order {
+        id
+        owner
+        total
+        note
+        email
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      food {
+        id
+        title
+        description
+        image
+        author
+        featured
+        price
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const deleteJPFoodOrder = /* GraphQL */ `
+  mutation DeleteJPFoodOrder(
+    $input: DeleteJPFoodOrderInput!
+    $condition: ModelJPFoodOrderConditionInput
+  ) {
+    deleteJPFoodOrder(input: $input, condition: $condition) {
+      id
+      food_id
+      order_id
+      order {
+        id
+        owner
+        total
+        note
+        email
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      food {
+        id
+        title
+        description
+        image
+        author
+        featured
+        price
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
 export const createJPNote = /* GraphQL */ `
   mutation CreateJPNote(
     $input: CreateJPNoteInput!

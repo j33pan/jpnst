@@ -39,6 +39,14 @@ type JPOrder
   email: String
 }
 
+type JPFoodOrder @model {
+  id: ID!
+  food_id: ID!
+  order_id: ID!
+  food: JPFood @connection(fields: ["food_id"])
+  order: JPOrder @connection(fields: ["order_id"])
+}
+
 type JPNote @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   total: Float

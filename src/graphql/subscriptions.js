@@ -40,6 +40,99 @@ export const onDeleteJPOrder = /* GraphQL */ `
     }
   }
 `;
+export const onCreateJPFoodOrder = /* GraphQL */ `
+  subscription OnCreateJPFoodOrder {
+    onCreateJPFoodOrder {
+      id
+      food_id
+      order_id
+      order {
+        id
+        owner
+        total
+        note
+        email
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      food {
+        id
+        title
+        description
+        image
+        author
+        featured
+        price
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const onUpdateJPFoodOrder = /* GraphQL */ `
+  subscription OnUpdateJPFoodOrder {
+    onUpdateJPFoodOrder {
+      id
+      food_id
+      order_id
+      order {
+        id
+        owner
+        total
+        note
+        email
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      food {
+        id
+        title
+        description
+        image
+        author
+        featured
+        price
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+export const onDeleteJPFoodOrder = /* GraphQL */ `
+  subscription OnDeleteJPFoodOrder {
+    onDeleteJPFoodOrder {
+      id
+      food_id
+      order_id
+      order {
+        id
+        owner
+        total
+        note
+        email
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+      food {
+        id
+        title
+        description
+        image
+        author
+        featured
+        price
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
 export const onCreateJPNote = /* GraphQL */ `
   subscription OnCreateJPNote($owner: String!) {
     onCreateJPNote(owner: $owner) {
