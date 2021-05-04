@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { API } from "aws-amplify";
 import { listJPFoods } from "../graphql/queries";
+import { CartContext } from "../contexts/cart";
 
 function Food() {
   const [foods, setFoods] = React.useState([]);
@@ -16,6 +17,8 @@ function Food() {
     getfoods();
   }, []);
 
+  const { inc, dec } = useContext(CartContext);
+
   return (
     <div>
       {foods.map(({ image, id, title }) => (
@@ -24,6 +27,8 @@ function Food() {
             <div className="book-image">
               <img src={image} alt={title} height={100} />
               {title}
+              <button onClick={() => dec(id)}>-</button>
+              <button onClick={() => inc(id)}>+</button>
             </div>
           </article>
         </div>
