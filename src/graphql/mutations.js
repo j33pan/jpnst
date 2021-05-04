@@ -60,48 +60,93 @@ export const deleteJPFood = /* GraphQL */ `
     }
   }
 `;
-export const createOrder = /* GraphQL */ `
-  mutation CreateOrder(
-    $input: CreateOrderInput!
-    $condition: ModelOrderConditionInput
+export const createJPOrder = /* GraphQL */ `
+  mutation CreateJPOrder(
+    $input: CreateJPOrderInput!
+    $condition: ModelJPOrderConditionInput
   ) {
-    createOrder(input: $input, condition: $condition) {
+    createJPOrder(input: $input, condition: $condition) {
       id
-      user
-      date
+      owner
       total
+      note
       createdAt
       updatedAt
     }
   }
 `;
-export const updateOrder = /* GraphQL */ `
-  mutation UpdateOrder(
-    $input: UpdateOrderInput!
-    $condition: ModelOrderConditionInput
+export const updateJPOrder = /* GraphQL */ `
+  mutation UpdateJPOrder(
+    $input: UpdateJPOrderInput!
+    $condition: ModelJPOrderConditionInput
   ) {
-    updateOrder(input: $input, condition: $condition) {
+    updateJPOrder(input: $input, condition: $condition) {
       id
-      user
-      date
+      owner
       total
+      note
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteOrder = /* GraphQL */ `
-  mutation DeleteOrder(
-    $input: DeleteOrderInput!
-    $condition: ModelOrderConditionInput
+export const deleteJPOrder = /* GraphQL */ `
+  mutation DeleteJPOrder(
+    $input: DeleteJPOrderInput!
+    $condition: ModelJPOrderConditionInput
   ) {
-    deleteOrder(input: $input, condition: $condition) {
+    deleteJPOrder(input: $input, condition: $condition) {
       id
-      user
-      date
+      owner
       total
+      note
       createdAt
       updatedAt
+    }
+  }
+`;
+export const createJPNote = /* GraphQL */ `
+  mutation CreateJPNote(
+    $input: CreateJPNoteInput!
+    $condition: ModelJPNoteConditionInput
+  ) {
+    createJPNote(input: $input, condition: $condition) {
+      id
+      total
+      note
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateJPNote = /* GraphQL */ `
+  mutation UpdateJPNote(
+    $input: UpdateJPNoteInput!
+    $condition: ModelJPNoteConditionInput
+  ) {
+    updateJPNote(input: $input, condition: $condition) {
+      id
+      total
+      note
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteJPNote = /* GraphQL */ `
+  mutation DeleteJPNote(
+    $input: DeleteJPNoteInput!
+    $condition: ModelJPNoteConditionInput
+  ) {
+    deleteJPNote(input: $input, condition: $condition) {
+      id
+      total
+      note
+      createdAt
+      updatedAt
+      owner
     }
   }
 `;

@@ -1,26 +1,27 @@
 import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
-import { listOrders } from "../graphql/queries";
+import { listJPOrders } from "../graphql/queries";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 
 function Order() {
   const [orders, setOrders] = React.useState([]);
   const getorders = async () => {
-    const response = await API.graphql(graphqlOperation(listOrders));
-    console.log("success: ", response.data.listOrders.items);
-    setOrders(response.data.listOrders.items);
+    const response = await API.graphql(graphqlOperation(listJPOrders));
+    console.log("success: ", response);
+    setOrders(response.data.listJPOrders.items);
   };
-  React.useEffect(() => {
-    getorders();
-  }, []);
+  // React.useEffect(() => {
+  //   getorders();
+  // }, []);
 
   return (
     <div>
-      {orders.map(({ user, total, id, date }) => (
+      <button onClick={getorders}>get orders</button>
+      {orders.map(({ id, total, note }) => (
         <div key={id}>
           <article key={id}>
             <div>
-              {id}: {user}, {total}, {date}
+              {note}: {total}, {id}
             </div>
           </article>
         </div>

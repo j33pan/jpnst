@@ -6,7 +6,8 @@ export default function Home() {
   const handleclick = () => {
     const input = {
       id: uuidv4(),
-      total: 100,
+      total: 666,
+      note: "from client",
     };
     API.graphql(graphqlOperation(processOrder, { input: input }));
   };

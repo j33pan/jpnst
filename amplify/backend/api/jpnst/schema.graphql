@@ -20,9 +20,28 @@ type JPFood
   price: Float
 }
 
-type Order @model(subscriptions: null) {
+type JPOrder
+  @model
+  @auth(
+    rules: [
+      { allow: owner, operations: [read] }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [create, update, delete, read]
+      }
+    ]
+  ) {
+  id: ID!
+  owner: ID
+  total: Float
+  note: String
+}
+
+type JPNote @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   total: Float
+  note: String
 }
 
 input CartItem {
@@ -36,6 +55,7 @@ input CartItem {
 input ProcessOrderInput {
   id: ID!
   total: Float!
+  note: String
 }
 
 enum OrderStatus {

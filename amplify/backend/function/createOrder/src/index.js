@@ -15,13 +15,15 @@ exports.handler = async (event, callback) => {
 };
 
 function createorder(payload) {
+  const { id, total, username, email, note } = payload;
   const params = {
-    TableName: "Order-dcjey6xckjddhcsd7yoy7mixqq-dev",
+    TableName: "JPOrder-dcjey6xckjddhcsd7yoy7mixqq-dev",
     Item: {
-      id: payload.id,
-      __typename: "Order",
-      total: payload.total,
-      user: payload.username,
+      id: id,
+      __typename: "JPOrder",
+      total: total,
+      owner: username,
+      note: note,
       updatedAt: new Date().toISOString(),
       createdAt: new Date().toISOString(),
     },

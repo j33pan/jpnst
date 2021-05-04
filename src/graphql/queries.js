@@ -1,32 +1,63 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getOrder = /* GraphQL */ `
-  query GetOrder($id: ID!) {
-    getOrder(id: $id) {
+export const getJPOrder = /* GraphQL */ `
+  query GetJPOrder($id: ID!) {
+    getJPOrder(id: $id) {
       id
-      user
-      date
+      owner
       total
+      note
       createdAt
       updatedAt
     }
   }
 `;
-export const listOrders = /* GraphQL */ `
-  query ListOrders(
-    $filter: ModelOrderFilterInput
+export const listJPOrders = /* GraphQL */ `
+  query ListJPOrders(
+    $filter: ModelJPOrderFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listJPOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        user
-        date
+        owner
         total
+        note
         createdAt
         updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getJPNote = /* GraphQL */ `
+  query GetJPNote($id: ID!) {
+    getJPNote(id: $id) {
+      id
+      total
+      note
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listJPNotes = /* GraphQL */ `
+  query ListJPNotes(
+    $filter: ModelJPNoteFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listJPNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        total
+        note
+        createdAt
+        updatedAt
+        owner
       }
       nextToken
     }
