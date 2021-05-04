@@ -8,6 +8,7 @@ import AddFood from "./pages/AddFood";
 import Navbar from "./components/Navbar";
 import Food from "./pages/Food";
 import Order from "./pages/Order";
+import Cart from "./pages/Cart";
 
 Amplify.configure(awsExports);
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/addfood" component={AddFood} />
           <Route path="/food" component={Food} />
           <Route path="/order" component={Order} />
+          <Route path="/cart" component={Cart} />
           <Route path="/" component={Home} exact />
         </Switch>
       </Router>

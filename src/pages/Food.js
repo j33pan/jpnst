@@ -28,7 +28,7 @@ function Food() {
               <img src={image} alt={title} height={100} />
               {title}
               <button onClick={() => dec(id)}>-</button>
-              <button onClick={() => inc(id)}>+</button>
+              <button onClick={() => inc({ image, id, title })}>+</button>
             </div>
           </article>
         </div>

@@ -9,7 +9,7 @@ const CartProvider = ({ children }) => {
     console.log(cart);
   }, [cart]);
 
-  const inc = (id) => {
+  const inc = ({ id, image, title }) => {
     const x = [...cart].find((y) => y.id === id);
     if (x) {
       const newcart = [...cart].map((x) => {
@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
       });
       setcart(newcart);
     } else {
-      const newcart = [...cart, { id, amount: 1 }];
+      const newcart = [...cart, { id, image, title, amount: 1 }];
       setcart(newcart);
     }
   };
