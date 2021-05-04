@@ -22,8 +22,6 @@ type JPFood
 
 type Order @model(subscriptions: null) {
   id: ID!
-  user: String!
-  date: String
   total: Float
 }
 
@@ -37,10 +35,7 @@ input CartItem {
 
 input ProcessOrderInput {
   id: ID!
-  # cart: [CartItem]
   total: Float!
-  # token: String!
-  # address: String
 }
 
 enum OrderStatus {

@@ -1,15 +1,5 @@
-
-
 exports.handler = async (event) => {
-    // TODO implement
-    const response = {
-        statusCode: 200,
-    //  Uncomment below to enable CORS requests
-    //  headers: {
-    //      "Access-Control-Allow-Origin": "*",
-    //      "Access-Control-Allow-Headers": "*"
-    //  }, 
-        body: JSON.stringify('Hello process payment!'),
-    };
-    return response;
+  const { id, total } = event.arguments.input;
+  const { username } = event.identity.claims;
+  return { id, total, username };
 };
