@@ -8,6 +8,7 @@ export const getJPOrder = /* GraphQL */ `
       owner
       total
       note
+      email
       createdAt
       updatedAt
     }
@@ -25,6 +26,7 @@ export const listJPOrders = /* GraphQL */ `
         owner
         total
         note
+        email
         createdAt
         updatedAt
       }

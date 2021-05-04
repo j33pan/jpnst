@@ -8,6 +8,7 @@ export const onCreateJPOrder = /* GraphQL */ `
       owner
       total
       note
+      email
       createdAt
       updatedAt
     }
@@ -20,6 +21,7 @@ export const onUpdateJPOrder = /* GraphQL */ `
       owner
       total
       note
+      email
       createdAt
       updatedAt
     }
@@ -32,6 +34,7 @@ export const onDeleteJPOrder = /* GraphQL */ `
       owner
       total
       note
+      email
       createdAt
       updatedAt
     }

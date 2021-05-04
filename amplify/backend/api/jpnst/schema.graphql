@@ -36,6 +36,7 @@ type JPOrder
   owner: ID
   total: Float
   note: String
+  email: String
 }
 
 type JPNote @model @auth(rules: [{ allow: owner }]) {

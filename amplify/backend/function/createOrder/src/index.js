@@ -26,6 +26,7 @@ function createorder(payload) {
       note: note,
       updatedAt: new Date().toISOString(),
       createdAt: new Date().toISOString(),
+      email: email,
     },
   };
   return ddb.put(params).promise();
