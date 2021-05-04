@@ -15,7 +15,7 @@ exports.handler = async (event, callback) => {
 };
 
 function createorder(payload) {
-  const { id, total, username, email, note } = payload;
+  const { id, total, username, email, note, cart } = payload;
   const params = {
     TableName: "JPOrder-dcjey6xckjddhcsd7yoy7mixqq-dev",
     Item: {

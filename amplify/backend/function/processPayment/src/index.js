@@ -5,9 +5,16 @@ const stripe = require("stripe")(
 );
 
 exports.handler = async (event) => {
-  const { id, total, note, token } = event.arguments.input;
+  const { id, note, token, cart } = event.arguments.input;
   const { username } = event.identity.claims;
   const email = await getUserEmail(event);
+  const total = parseFloat(
+    [...cart]
+      .reduce((total, { amount, price }) => {
+        return (total += amount * price);
+      }, 0)
+      .toFixed(2)
+  );
 
   try {
     await stripe.charges.create({
@@ -16,7 +23,7 @@ exports.handler = async (event) => {
       source: token,
       description: `Order ${new Date()} by ${email}`,
     });
-    return { id, total, username, email, note };
+    return { id, total, username, email, note, cart };
   } catch (error) {
     throw new Error(error);
   }

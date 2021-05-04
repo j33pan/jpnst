@@ -18,11 +18,11 @@
       "function": {
         "processPayment": {
           "deploymentBucketName": "amplify-jpnst-dev-215416-deployment",
-          "s3Key": "amplify-builds/processPayment-436c41734e397a786c44-build.zip"
+          "s3Key": "amplify-builds/processPayment-755847366d34436b3171-build.zip"
         },
         "createOrder": {
           "deploymentBucketName": "amplify-jpnst-dev-215416-deployment",
-          "s3Key": "amplify-builds/createOrder-4e5a77414a6e4e4f5858-build.zip"
+          "s3Key": "amplify-builds/createOrder-444247546e7476664d47-build.zip"
         }
       }
     }
