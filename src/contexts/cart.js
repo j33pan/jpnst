@@ -43,6 +43,8 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  const checkout = () => {};
+
   return (
     <CartContext.Provider value={{ cart, inc, dec, total }}>
       {children}

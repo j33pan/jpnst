@@ -15,6 +15,7 @@ function Navbar(props) {
       <button onClick={() => handlenav("/food")}>Food</button>
       <button onClick={() => handlenav("/order")}>Order</button>
       <button onClick={() => handlenav("/cart")}>Cart</button>
+      <button onClick={() => handlenav("/checkout")}>Checkout</button>
       {curruser}
       <br />
       <br />
