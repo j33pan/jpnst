@@ -4,12 +4,18 @@ const CartContext = React.createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setcart] = React.useState([]);
+  const [total, setTotal] = React.useState(0);
 
   React.useEffect(() => {
-    console.log(cart);
+    const total = [...cart].reduce((total, { amount, price }) => {
+      return (total += amount * price);
+    }, 0);
+    setTotal(parseFloat(total.toFixed(2)));
+    console.log(total);
+    // console.log(cart);
   }, [cart]);
 
-  const inc = ({ id, image, title }) => {
+  const inc = ({ id, image, title, price }) => {
     const x = [...cart].find((y) => y.id === id);
     if (x) {
       const newcart = [...cart].map((x) => {
@@ -17,7 +23,7 @@ const CartProvider = ({ children }) => {
       });
       setcart(newcart);
     } else {
-      const newcart = [...cart, { id, image, title, amount: 1 }];
+      const newcart = [...cart, { id, image, title, price, amount: 1 }];
       setcart(newcart);
     }
   };
@@ -38,7 +44,7 @@ const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, inc, dec }}>
+    <CartContext.Provider value={{ cart, inc, dec, total }}>
       {children}
     </CartContext.Provider>
   );

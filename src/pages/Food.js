@@ -21,14 +21,16 @@ function Food() {
 
   return (
     <div>
-      {foods.map(({ image, id, title }) => (
+      {foods.map(({ image, id, title, price }) => (
         <div key={id}>
           <article key={id} className="book">
             <div className="book-image">
               <img src={image} alt={title} height={100} />
-              {title}
+              {title}: ${price}
               <button onClick={() => dec(id)}>-</button>
-              <button onClick={() => inc({ image, id, title })}>+</button>
+              <button onClick={() => inc({ image, id, title, price })}>
+                +
+              </button>
             </div>
           </article>
         </div>
