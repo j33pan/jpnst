@@ -1,12 +1,25 @@
 const { CognitoIdentityServiceProvider } = require("aws-sdk");
 const cognitoIdentityServiceProvider = new CognitoIdentityServiceProvider();
+const stripe = require("stripe")(
+  "sk_test_51InRYpETKhgF1UqhVfnrhLYqNBSfjk4ojpziYPFHaAXaEIZrGXpqhIcJTIWjdj4UNIuVsLvjmDFS4pDQETCJr0hd00pfhFuYLt"
+);
 
 exports.handler = async (event) => {
-  const { id, total, note } = event.arguments.input;
+  const { id, total, note, token } = event.arguments.input;
   const { username } = event.identity.claims;
   const email = await getUserEmail(event);
 
-  return { id, total, username, email, note };
+  try {
+    await stripe.charges.create({
+      amount: total * 100,
+      currency: "usd",
+      source: token,
+      description: `Order ${new Date()} by ${email}`,
+    });
+    return { id, total, username, email, note };
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 const getUserEmail = async (event) => {
