@@ -1,3 +1,4 @@
+import { withAuthenticator } from "@aws-amplify/ui-react";
 import React, { useContext } from "react";
 import { useHistory } from "react-router";
 import { CartContext } from "../contexts/cart";
@@ -22,4 +23,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default withAuthenticator(Cart);

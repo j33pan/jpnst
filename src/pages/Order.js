@@ -17,11 +17,11 @@ function Order() {
   return (
     <div>
       <button onClick={getorders}>get orders</button>
-      {orders.map(({ id, total, note }) => (
+      {orders.map(({ id, total, email }) => (
         <div key={id}>
           <article key={id}>
             <div>
-              {id}: {total}
+              {email}: {total}
             </div>
           </article>
         </div>
