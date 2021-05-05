@@ -10,13 +10,12 @@ function Order() {
     console.log("success: ", response);
     setOrders(response.data.listJPOrders.items);
   };
-  // React.useEffect(() => {
-  //   getorders();
-  // }, []);
+  React.useEffect(() => {
+    getorders();
+  }, []);
 
   return (
     <div>
-      <button onClick={getorders}>get orders</button>
       {orders.map(({ id, total, email }) => (
         <div key={id}>
           <article key={id}>

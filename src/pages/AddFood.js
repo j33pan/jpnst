@@ -51,7 +51,7 @@ function AddFood() {
 
   return (
     <div>
-      <form className="form-wrapper" onSubmit={handleSubmit}>
+      <form className="form-wrapper" onSubmit={handleSubmit} noValidate>
         <div className="form-fields">
           <div className="form-image">
             {image ? (

@@ -41,6 +41,8 @@ type JPOrder
 
 type JPFoodOrder
   @model
+  @key(name: "byFood", fields: ["food_id", "order_id"])
+  @key(name: "byOrder", fields: ["order_id", "food_id"])
   @auth(
     rules: [
       { allow: owner, operations: [read] }
