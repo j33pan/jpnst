@@ -35,7 +35,7 @@ function createorder(payload) {
 }
 
 function createfoodorder(payload) {
-  const { id, cart } = payload;
+  const { id, cart, email, username } = payload;
   let orderfoods = [];
   for (let i = 0; i < cart.length; i++) {
     const food = cart[i];
@@ -46,7 +46,8 @@ function createfoodorder(payload) {
           __typename: "JPFoodOrder",
           food_id: food.id,
           order_id: id,
-          email: payload.email,
+          owner: username,
+          email: email,
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         },

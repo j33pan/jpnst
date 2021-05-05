@@ -41,11 +41,12 @@ export const onDeleteJPOrder = /* GraphQL */ `
   }
 `;
 export const onCreateJPFoodOrder = /* GraphQL */ `
-  subscription OnCreateJPFoodOrder {
-    onCreateJPFoodOrder {
+  subscription OnCreateJPFoodOrder($owner: String) {
+    onCreateJPFoodOrder(owner: $owner) {
       id
       food_id
       order_id
+      owner
       order {
         id
         owner
@@ -72,11 +73,12 @@ export const onCreateJPFoodOrder = /* GraphQL */ `
   }
 `;
 export const onUpdateJPFoodOrder = /* GraphQL */ `
-  subscription OnUpdateJPFoodOrder {
-    onUpdateJPFoodOrder {
+  subscription OnUpdateJPFoodOrder($owner: String) {
+    onUpdateJPFoodOrder(owner: $owner) {
       id
       food_id
       order_id
+      owner
       order {
         id
         owner
@@ -103,11 +105,12 @@ export const onUpdateJPFoodOrder = /* GraphQL */ `
   }
 `;
 export const onDeleteJPFoodOrder = /* GraphQL */ `
-  subscription OnDeleteJPFoodOrder {
-    onDeleteJPFoodOrder {
+  subscription OnDeleteJPFoodOrder($owner: String) {
+    onDeleteJPFoodOrder(owner: $owner) {
       id
       food_id
       order_id
+      owner
       order {
         id
         owner

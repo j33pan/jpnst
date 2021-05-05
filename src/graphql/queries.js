@@ -40,6 +40,7 @@ export const getJPFoodOrder = /* GraphQL */ `
       id
       food_id
       order_id
+      owner
       order {
         id
         owner
@@ -76,6 +77,7 @@ export const listJPFoodOrders = /* GraphQL */ `
         id
         food_id
         order_id
+        owner
         order {
           id
           owner

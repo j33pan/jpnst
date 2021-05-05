@@ -39,10 +39,22 @@ type JPOrder
   email: String
 }
 
-type JPFoodOrder @model {
+type JPFoodOrder
+  @model
+  @auth(
+    rules: [
+      { allow: owner, operations: [read] }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [create, update, delete, read]
+      }
+    ]
+  ) {
   id: ID!
   food_id: ID!
   order_id: ID!
+  owner: ID
   food: JPFood @connection(fields: ["food_id"])
   order: JPOrder @connection(fields: ["order_id"])
 }

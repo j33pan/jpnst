@@ -117,6 +117,7 @@ export const createJPFoodOrder = /* GraphQL */ `
       id
       food_id
       order_id
+      owner
       order {
         id
         owner
@@ -151,6 +152,7 @@ export const updateJPFoodOrder = /* GraphQL */ `
       id
       food_id
       order_id
+      owner
       order {
         id
         owner
@@ -185,6 +187,7 @@ export const deleteJPFoodOrder = /* GraphQL */ `
       id
       food_id
       order_id
+      owner
       order {
         id
         owner
